@@ -6,5 +6,4 @@ for (i = 1; i <= 16; ++i) {
     div.classList.add("grid");
     container.appendChild(div);
 }
-// Append divs to container div
 
