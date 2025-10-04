@@ -9,4 +9,5 @@
 .grid {
     display: flex;
     flex: auto;
+    outline: 1px solid;
 }
