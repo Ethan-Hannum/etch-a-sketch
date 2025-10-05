@@ -2,6 +2,8 @@ const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", changeSize);
 
+let darkness = 10;
+
 function randomHex() {
     const maxVal = 0xFFFFFF;
     const randomNum = Math.floor(Math.random() * (maxVal + 1));
@@ -12,6 +14,10 @@ function randomHex() {
 
 // When mouse enters div, change it's color
 function changeColor(e) {
+    if (darkness <= 99) {
+        e.target.style.opacity = `${darkness}%`
+        darkness =+ darkness + 10;
+    }
     e.target.style.background = `${randomHex()}`;
 }
 
@@ -37,6 +43,7 @@ function changeSize() {
     const inputSize = +prompt("How many squares per side for the new grid?", 16);
     const grid = document.querySelectorAll(".grid");
     grid.forEach(square => container.removeChild(square));
+    darkness = 10;
     createGrid(inputSize);
 }
 
