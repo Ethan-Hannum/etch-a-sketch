@@ -15,8 +15,10 @@ function randomHex() {
 // When mouse enters div, change it's color
 function changeColor(e) {
     if (darkness <= 99) {
-        e.target.style.opacity = `${darkness}%`
+        e.target.style.opacity = `${darkness}%`;
         darkness =+ darkness + 10;
+    } else if (darkness >= 100) {
+        e.target.style.opacity = "1";
     }
     e.target.style.background = `${randomHex()}`;
 }
