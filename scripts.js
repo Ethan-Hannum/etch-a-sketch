@@ -2,10 +2,19 @@ const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", changeSize);
 
+function randomHex() {
+    const maxVal = 0xFFFFFF;
+    const randomNum = Math.floor(Math.random() * (maxVal + 1));
+    const hexColor = randomNum.toString(16);
+    const lowerHex = hexColor.padStart(6, "0");
+    return `#${lowerHex.toUpperCase()}`;
+}
+
 // When mouse enters div, change it's color
 function changeColor(e) {
-    e.target.style.background = "blue";
+    e.target.style.background = `${randomHex()}`;
 }
+
 // Loop to create X amount of "square" divs for the grid
 function createGrid(size) {
     const totalSquares = size ** 2;
@@ -22,6 +31,8 @@ function createGrid(size) {
     }
 }
 
+// Function changeSize will ask user for size, then delete current grid...
+// and then call createGrid with inputSize to create new grid
 function changeSize() {
     const inputSize = +prompt("How many squares per side for the new grid?", 16);
     const grid = document.querySelectorAll(".grid");
